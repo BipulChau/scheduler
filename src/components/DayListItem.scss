@@ -29,10 +29,6 @@
 
     &--full {
       opacity: $inactive-opacity;
-
-      &:hover {
-        background-color: darken($white, 5%);
-      }
     }
   }
 }
