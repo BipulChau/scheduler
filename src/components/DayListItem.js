@@ -12,7 +12,7 @@ export default function DayListItem(props) {
 };
 
   return(
-    <li className={dayClass.replace(/ /g,'')} onClick={props.setDay}>
+    <li className={dayClass.replace(/ /g,'')} onClick={()=>props.setDay(props.name)} >
       <h2>{props.name}</h2>
       <h3>{formatSpots(props.spots)} remaining</h3>
     </li>
