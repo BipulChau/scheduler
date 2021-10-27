@@ -10,7 +10,7 @@ import DayListItem from "components/DayListItem"
 import DayList from "components/DayList"
 import InterviewerListItem from "components/InterviewerListItem"
 
-//Button
+//Button................................................................................................
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -27,7 +27,7 @@ storiesOf("Button", module)
     </Button>
   ));
 
-  //DayListItem
+  //DayListItem................................................................................................
   storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -40,7 +40,7 @@ storiesOf("Button", module)
   ));
 
 
-  //DayList
+  //DayList................................................................................................................................................................................................
   const days = [
     {
       id: 1,
@@ -73,7 +73,7 @@ storiesOf("Button", module)
         <DayList days={days} day={"Wednesday"} setDay={action("setDay")} />
     ));
 
-    //InterviewerListItem
+    //InterviewerListItem ................................................................................................
 
     const interviewer = {
       id: 1,
