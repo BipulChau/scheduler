@@ -3,9 +3,9 @@ import "components/InterviewerListItem.scss"
 
 
 const InterviewerListItem = (props) => {
-  const{id, name, avatar} = props;
+  const{id, name, avatar, setInterviewer} = props;
   return(
-    <li className="interviewers__item">
+    <li className="interviewers__item" onClick={()=>setInterviewer(id)}>
   <img
     className="interviewers__item-image"
     src={avatar}

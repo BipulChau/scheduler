@@ -90,6 +90,7 @@ storiesOf("Button", module)
           id={interviewer.id}
           name={interviewer.name}
           avatar={interviewer.avatar}
+          setInterviewer={action("setInterviewer")}
         />
       ))
       .add("Selected", () => (
@@ -98,6 +99,7 @@ storiesOf("Button", module)
           name={interviewer.name}
           avatar={interviewer.avatar}
           selected
+          setInterviewer={action("setInterviewer")}
         />
       ))
       .add("Clickable", () => (
