@@ -9,3 +9,5 @@ const InterviewerList = (props) => {
     </section>
   );
 };
+
+export default InterviewerList;
