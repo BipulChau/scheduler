@@ -8,25 +8,25 @@ import axios from "axios";
 
 // Days data ******************************************************
 
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+// const days = [
+//   {
+//     id: 1,
+//     name: "Monday",
+//     spots: 2,
+//   },
+//   {
+//     id: 2,
+//     name: "Tuesday",
+//     spots: 5,
+//   },
+//   {
+//     id: 3,
+//     name: "Wednesday",
+//     spots: 0,
+//   },
+// ];
 
-// Appointments Data******************************************************
+// Appointments Data****************************************************************************
 
 const appointments = [
   {
@@ -67,11 +67,20 @@ const appointments = [
   }
 ];
 
-// Application Component ******************************************************//
+// Application Component ********************************************************************************//
 
 export default function Application(props) {
-  const [day,setDay] = useState("Monday")
+  const [day,setDay] = useState("")
+  const [days,setDays] = useState([])
   console.log(day)
+
+  useEffect(() => {
+    axios.get("/api/days")
+    .then(res => {
+      console.log(res.data);
+      setDays([...res.data])
+    })
+  },[])
   // creating an array of appointment date******************//
 const eachAppointment= appointments.map(appointment => <Appointment key ={appointment.id} {...appointment}/>)
 
