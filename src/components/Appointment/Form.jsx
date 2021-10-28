@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
 const Form = (props) => {
+  const [student, setStudent] = useState(props.student || "");
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  
+
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -12,14 +16,16 @@ const Form = (props) => {
             name="name"
             type="text"
             placeholder="Enter Student Name"
+            value={student}
+            onChange={e => setStudent(e.target.value)}
           />
         </form>
-        <InterviewerList />
+        <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer}/>
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger>Cancel</Button>
-          <Button confirm>Save</Button>
+          <Button danger onClick={props.onCancel}>Cancel</Button>
+          <Button confirm onClick={props.onSave}>Save</Button>
         </section>
       </section>
     </main>
