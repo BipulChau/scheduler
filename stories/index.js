@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -207,3 +207,13 @@ storiesOf("Appointment", module)
       <Appointment time="5pm" />
     </Fragment>
   ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Jogendra Biswas", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
+  ));
