@@ -2,6 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { act } from "@testing-library/react";
 
 import "index.scss";
 
@@ -14,8 +15,8 @@ import Appointment from "components/Appointment/index";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
 import Show from "components/Appointment/Show";
-import Confirm from "components/Appointment/Confirm"
-import { act } from "@testing-library/react";
+import Confirm from "components/Appointment/Confirm";
+import Status from "components/Appointment/Status";
 
 //Button................................................................................................
 storiesOf("Button", module)
@@ -164,4 +165,11 @@ storiesOf("Appointment", module)
       onDelete={action("onDelete")}
     />
   ))
-  .add("Confirm", () => <Confirm message={"Delete the appointment"} onConfirm={action("onConfirm")} onCancel={action("onCancel")}/>)
+  .add("Confirm", () => (
+    <Confirm
+      message={"Delete the appointment"}
+      onConfirm={action("onConfirm")}
+      onCancel={action("onCancel")}
+    />
+  ))
+  .add("Status", () => <Status/>)
