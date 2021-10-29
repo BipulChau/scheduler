@@ -25,7 +25,7 @@ export function getAppointmentsForDay(state, day) {
 //     interview: { student: 'Archie Cohen', interviewer: 2 }
 //   }
 // ]
-//*************************************************** Output demo end ***************************************************
+//*************************************************** Data ***************************************************
 
 
 // const state = {
@@ -55,25 +55,20 @@ export function getAppointmentsForDay(state, day) {
 //       time: "4pm",
 //       interview: { student: "Chad Takahashi", interviewer: 2 }
 //     }
+//   },
+//   interviewers: {
+//     "1": {  
+//       "id": 1,
+//       "name": "Sylvia Palmer",
+//       "avatar": "https://i.imgur.com/LpaY82x.png"
+//     },
+//     "2": {
+//       id: 2,
+//       name: "Tori Malcolm",
+//       avatar: "https://i.imgur.com/Nmx0Qxo.png"
+//     }
 //   }
 // };
-
-// function getAppointmentsForDay(state, day) {
-//   // filtering days array based on day
-//   const dayObject = state.days.filter((element) => element.name === day);
-//   if (dayObject.length === 0) {
-//     return [];
-//   }
-// // each dayObject is an array with a single element at index 0 and appointments is also an array
-//   const appointmentIDs = dayObject[0].appointments;
-// // creating a new array out of appointmentIDs using map function and returning object of appointments which matches the element of appointmentIDs,i.e. id.
-//   const appointmentDetails = appointmentIDs.map((id) => state.appointments[id]);
-// console.log(appointmentDetails)
-//   return appointmentDetails;
-// }
-
-// getAppointmentsForDay(state, "Monday")
-
 
 //********************************           function getInterview                       ****************************/
 
