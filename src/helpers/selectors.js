@@ -15,7 +15,7 @@ export function getAppointmentsForDay(state, day) {
 }
 
 
-// Output will be something like this if the day is "Momday"***************************************************
+// Output will be something like this if the day is "Monday"***************************************************
 // [
 //   { id: 1, time: '12pm', interview: null },
 //   { id: 2, time: '1pm', interview: null },
