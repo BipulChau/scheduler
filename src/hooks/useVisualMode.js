@@ -4,12 +4,12 @@ const useVisualMode = (initial) => {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-  const transition = (second, replaceSecond = false) => {
-    setMode(second);
+  const transition = (newMode, replaceCurrentMode = false) => {
+    setMode(newMode);
     setHistory(prev => {
       const prevState = [...prev]
-      replaceSecond && prevState.pop()
-      return [...prevState, second]
+      replaceCurrentMode && prevState.pop()
+      return [...prevState, newMode]
     })
   };
 
