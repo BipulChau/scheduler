@@ -18,8 +18,11 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const appointments = dailyAppointments.map((appointment) => appointment);
+  const interviewers = getInterviewersForDay(state, state.day)
+  
+  console.log("Interviewers are: ", interviewers) //test
 
-  console.log(state.day);
+  console.log(state.day); // test
 
   const setDay = (day) => setState({ ...state, day });
 
@@ -41,9 +44,9 @@ export default function Application(props) {
     });
   }, []);
 
-  console.log("State is :",state);
+  console.log("State is :",state);  //  test
 
-
+  console.log("Interviewers are: ", interviewers) // test
   // creating an array of appointment date*********************************************************************//
   const eachAppointment = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -53,6 +56,7 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={interviewers}
       />
     );});
 

@@ -14,6 +14,9 @@ const InterviewerList = (props) => {
     selected = {interviewere.id === value}
     />)
   })
+
+  console.log("interviewerListItem", interviewersListItem) //test
+
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>

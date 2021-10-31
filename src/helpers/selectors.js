@@ -33,11 +33,13 @@ export function getAppointmentsForDay(state, day) {
 //     {
 //       id: 1,
 //       name: "Monday",
-//       appointments: [1, 2, 3]
+//       appointments: [1, 2, 3],
+//       interviewers: [1, 2]
 //     },
 //     {
 //       id: 2,
 //       name: "Tuesday",
+//       interviewers: [2, 3],
 //       appointments: [4, 5]
 //     }
 //   ],
@@ -66,7 +68,12 @@ export function getAppointmentsForDay(state, day) {
 //       id: 2,
 //       name: "Tori Malcolm",
 //       avatar: "https://i.imgur.com/Nmx0Qxo.png"
-//     }
+//     },
+//     "3": {
+//       "id": 3,
+//       "name": "Mildred Nazir",
+//       "avatar": "https://i.imgur.com/T2WwVfS.png"
+//       }
 //   }
 // };
 
@@ -107,3 +114,17 @@ const interviewers = interviewersIDs.map(id => state.interviewers[id])
 
 return interviewers;
 }
+
+// Sample Output of getInterviewersForDay **********************
+// [
+//   {
+//     id: 1,
+//     name: 'Sylvia Palmer',
+//     avatar: 'https://i.imgur.com/LpaY82x.png'
+//   },
+//   {
+//     id: 2,
+//     name: 'Tori Malcolm',
+//     avatar: 'https://i.imgur.com/Nmx0Qxo.png'
+//   }
+// ]
