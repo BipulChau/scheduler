@@ -41,7 +41,8 @@ export default function Application(props) {
     });
   }, []);
 
-  console.log(state);
+  console.log("State is :",state);
+
 
   // creating an array of appointment date*********************************************************************//
   const eachAppointment = appointments.map((appointment) => {
