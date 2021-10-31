@@ -93,3 +93,17 @@ export function getInterview(state, interview) {
 
   return ({...interview, interviewer: interviewerObject})
 }
+
+//********************************           function getInterviewersForDay                       ****************************/
+
+export function getInterviewersForDay (state, day){
+const dayObject = state.days.filter(element => element.name === day)
+if (dayObject.length === 0) {
+  return [];
+}
+
+const interviewersIDs = dayObject[0].interviewers
+const interviewers = interviewersIDs.map(id => state.interviewers[id])
+
+return interviewers;
+}
