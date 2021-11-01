@@ -6,6 +6,9 @@ const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
+
+  console.log("From Form Component:", props.interviewers)
+
   //Reset Function that sets student and interviewer to ""
   const reset = () => {
     setStudent("");
@@ -17,6 +20,15 @@ const Form = (props) => {
     reset();
     props.onCancel();
   };
+
+ //this function will check if the interviewer is selected or not and if name is written or not in the form
+  const validate = () => {
+    if(!interviewer || !student) {
+      alert("Please select interviewer and also write your name")
+      return 
+    }
+    props.onSave(student,interviewer)
+  }
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -43,7 +55,7 @@ const Form = (props) => {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>
+          <Button confirm onClick={validate}>
             Save
           </Button>
         </section>

@@ -72,8 +72,14 @@ export default function Application(props) {
 
     setState({
       ...state,
-      appointments
+      appointments,
     });
+
+    return axios.put(`/api/appointments/${id}`, {interview})
+    .then((res) => {
+      console.log("Axios Put request is success 😁")
+      setState(prev => ({...prev, appointments}))
+    })
   };
 
   // creating an array of appointment date*********************************************************************//
