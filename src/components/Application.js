@@ -47,7 +47,15 @@ export default function Application(props) {
   console.log("State is :",state);  //  test
 
   console.log("Interviewers are: ", interviewers) // test
+
+  // ******** Function bookInterview **************
+
+  const bookInterview = (id, interview) => {
+    console.log(id, interview)
+  }
+
   // creating an array of appointment date*********************************************************************//
+
   const eachAppointment = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (
@@ -57,6 +65,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
+        bookInterview = {bookInterview}
       />
     );});
 
