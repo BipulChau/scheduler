@@ -75,12 +75,28 @@ export default function Application(props) {
       appointments,
     });
 
-    return axios.put(`/api/appointments/${id}`, {interview})
-    .then((res) => {
-      console.log("Axios Put request is success 😁")
-      setState(prev => ({...prev, appointments}))
-    })
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      console.log("Axios Put request is success 😁");
+      setState((prev) => ({ ...prev, appointments }));
+    });
   };
+
+  //******* Function cancelInterview  ***************************/
+
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    return axios.delete(`/api/appointments/${id}`).then(() => {
+      console.log("Deleted appointment successfully 😁🥳");
+      setState((prev) => ({ ...prev, appointments }));
+    });
+  }
 
   // creating an array of appointment date*********************************************************************//
 
@@ -94,6 +110,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });
