@@ -4,7 +4,11 @@ import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import axios from "axios";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "../helpers/selectors";
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "../helpers/selectors";
 
 // Application Component ********************************************************************************//
 
@@ -18,9 +22,9 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const appointments = dailyAppointments.map((appointment) => appointment);
-  const interviewers = getInterviewersForDay(state, state.day)
-  
-  console.log("Interviewers are: ", interviewers) //test
+  const interviewers = getInterviewersForDay(state, state.day);
+
+  console.log("Interviewers are: ", interviewers); //test
 
   console.log(state.day); // test
 
@@ -44,15 +48,33 @@ export default function Application(props) {
     });
   }, []);
 
-  console.log("State is :",state);  //  test
+  console.log("State is :", state); //  test
 
-  console.log("Interviewers are: ", interviewers) // test
+  console.log("Interviewers are: ", interviewers); // test
 
   // ******** Function bookInterview **************
 
   const bookInterview = (id, interview) => {
-    console.log(id, interview)
-  }
+    console.log(
+      "calling bookInterview fn at index.jsx in Form component",
+      id,
+      interview
+    );
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    setState({
+      ...state,
+      appointments
+    });
+  };
 
   // creating an array of appointment date*********************************************************************//
 
@@ -65,9 +87,10 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
-        bookInterview = {bookInterview}
+        bookInterview={bookInterview}
       />
-    );});
+    );
+  });
 
   return (
     <main className="layout">
