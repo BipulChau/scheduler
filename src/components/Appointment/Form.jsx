@@ -4,6 +4,8 @@ import InterviewerList from "components/InterviewerList";
 
 const Form = (props) => {
   const [student, setStudent] = useState(props.name || "");
+  const [error, setError] = useState("");
+
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
 
@@ -23,9 +25,17 @@ const Form = (props) => {
 
  //this function will check if the interviewer is selected or not and if name is written or not in the form
   const validate = () => {
-    if(!interviewer || !student) {
-      alert("Please select interviewer and also write your name")
+    if(!interviewer && !student) {
+      alert("Please select an interviewer and also write your name")
       return 
+    }
+    if(!interviewer) {
+      alert("Please select an interviewer!!!")
+      return 
+    }
+    if (student === "") {
+      setError("Student name cannot be blank");
+      return;
     }
     props.onSave(student,interviewer)
   }
@@ -44,6 +54,7 @@ const Form = (props) => {
             
           />
         </form>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
