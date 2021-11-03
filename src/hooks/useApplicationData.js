@@ -10,7 +10,7 @@ export default function useApplicationData() {
   });
   const setDay = (day) => setState({ ...state, day });
 
-  // ******** Function getSpotsForDay ***********************************************************
+  // ******** Function updateSpots which will update the number of spots available for booking ***********************************************************
   const updateSpots = (state, appointments) => {
     const days = state.days.map((day) => {
       const newSpot = day.appointments.reduce((prev, currID) => {
