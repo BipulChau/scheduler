@@ -27,15 +27,29 @@ export default function useApplicationData (){
       ...state.appointments,
       [id]: appointment,
     };
+
+    const days = state.days.map((day) => {
+      const newSpot=day.appointments.reduce((prev, currID)=>{
+        if (appointments[currID].interview === null){
+          return prev+1
+        } else {return prev}
+      }, 0)
+      if(state.day === day.name){
+      return {...day,spots:newSpot}
+    } else {
+      return {...day}
+    }
+    } )
+    console.log("Appointments from useApplicationData: ",appointments)
   
-    setState({
-      ...state,
-      appointments,
-    });
+    // setState({
+    //   ...state,
+    //   appointments,
+    // });
   
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       console.log("Axios Put request is success 😁");
-      setState((prev) => ({ ...prev, appointments }));
+      setState((prev) => ({ ...prev, appointments,days }));
     });
   };
   
@@ -50,9 +64,23 @@ export default function useApplicationData (){
       ...state.appointments,
       [id]: appointment,
     };
+
+    const days = state.days.map((day) => {
+      const newSpot=day.appointments.reduce((prev, currID)=>{
+        if (appointments[currID].interview === null){
+          return prev+1
+        } else {return prev}
+      }, 0)
+      if(state.day === day.name){
+      return {...day,spots:newSpot}
+    } else {
+      return {...day}
+    }
+    } )
+
     return axios.delete(`/api/appointments/${id}`).then(() => {
       console.log("Deleted appointment successfully 😁🥳");
-      setState((prev) => ({ ...prev, appointments }));
+      setState((prev) => ({ ...prev, appointments, days }));
     });
   }
   

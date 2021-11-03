@@ -26,8 +26,8 @@ const Form = (props) => {
  //this function will check if the interviewer is selected or not and if name is written or not in the form
   const validate = () => {
     if(!interviewer && !student) {
-      alert("Please select an interviewer and also write your name")
-      return 
+      setError("Student name cannot be blank");
+      return; 
     }
     if(!interviewer) {
       alert("Please select an interviewer!!!")
@@ -51,7 +51,7 @@ const Form = (props) => {
             placeholder="Enter Student Name"
             value={student}
             onChange={(e) => setStudent(e.target.value)}
-            
+            data-testid="student-name-input"
           />
         </form>
         <section className="appointment__validation">{error}</section>
