@@ -8,8 +8,7 @@ const Form = (props) => {
 
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-
-  console.log("From Form Component:", props.interviewers)
+  console.log("From Form Component:", props.interviewers);
 
   //Reset Function that sets student and interviewer to ""
   const reset = () => {
@@ -23,15 +22,15 @@ const Form = (props) => {
     props.onCancel();
   };
 
- //this function will check if the interviewer is selected or not and if name is written or not in the form
+  //this function will check if the interviewer is selected or not and if name is written or not in the form
   const validate = () => {
-    if(!interviewer && !student) {
+    if (!interviewer && !student) {
       setError("Student name cannot be blank");
-      return; 
+      return;
     }
-    if(!interviewer) {
-      alert("Please select an interviewer!!!")
-      return 
+    if (!interviewer) {
+      alert("Please select an interviewer!!!");
+      return;
     }
     if (student === "") {
       setError("Student name cannot be blank");
@@ -39,13 +38,13 @@ const Form = (props) => {
     }
 
     setError("");
-    props.onSave(student,interviewer)
-  }
+    props.onSave(student, interviewer);
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off" onSubmit={e => e.preventDefault()}>
+        <form autoComplete="off" onSubmit={(e) => e.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
             name="name"

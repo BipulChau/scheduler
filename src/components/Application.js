@@ -20,15 +20,11 @@ export default function Application(props) {
   const appointments = dailyAppointments.map((appointment) => appointment);
   const interviewers = getInterviewersForDay(state, state.day);
 
-  console.log("Interviewers are: ", interviewers); //test
-
-  console.log(state.day); // test
-
   // creating an array of appointment date*********************************************************************//
 
   const eachAppointment = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-    console.log("Interview from Application.js: ", interview); // test
+
     return (
       <Appointment
         key={appointment.id}
@@ -61,7 +57,6 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
         {eachAppointment}
         <Appointment key="last" time="5pm" />
       </section>

@@ -32,11 +32,6 @@ export default function useApplicationData() {
   // ******** Function bookInterview ***********************************************************
 
   const bookInterview = (id, interview) => {
-    console.log(
-      "calling bookInterview fn at index.jsx in Form component",
-      id,
-      interview
-    );
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -50,7 +45,6 @@ export default function useApplicationData() {
     const days = updateSpots(state, appointments);
 
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
-      console.log("Axios Put request is success 😁");
       setState((prev) => ({ ...prev, appointments, days }));
     });
   };
@@ -70,7 +64,6 @@ export default function useApplicationData() {
     const days = updateSpots(state, appointments);
 
     return axios.delete(`/api/appointments/${id}`).then(() => {
-      console.log("Deleted appointment successfully 😁🥳");
       setState((prev) => ({ ...prev, appointments, days }));
     });
   }

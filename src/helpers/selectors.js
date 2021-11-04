@@ -6,14 +6,13 @@ export function getAppointmentsForDay(state, day) {
   if (dayObject.length === 0) {
     return [];
   }
-// each dayObject is an array with a single element at index 0 and appointments is also an array
+  // each dayObject is an array with a single element at index 0 and appointments is also an array
   const appointmentIDs = dayObject[0].appointments;
-// creating a new array out of appointmentIDs using map function and returning object of appointments which matches the element of appointmentIDs,i.e. id.
+  // creating a new array out of appointmentIDs using map function and returning object of appointments which matches the element of appointmentIDs,i.e. id.
   const appointmentDetails = appointmentIDs.map((id) => state.appointments[id]);
 
   return appointmentDetails;
 }
-
 
 // Output will be something like this if the day is "Monday"***************************************************
 // [
@@ -26,7 +25,6 @@ export function getAppointmentsForDay(state, day) {
 //   }
 // ]
 //*************************************************** Data ***************************************************
-
 
 // const state = {
 //   days: [
@@ -59,7 +57,7 @@ export function getAppointmentsForDay(state, day) {
 //     }
 //   },
 //   interviewers: {
-//     "1": {  
+//     "1": {
 //       "id": 1,
 //       "name": "Sylvia Palmer",
 //       "avatar": "https://i.imgur.com/LpaY82x.png"
@@ -81,9 +79,9 @@ export function getAppointmentsForDay(state, day) {
 
 // The function should return a new object containing the interview data when we pass it an object that contains the interviewer....
 //  Otherwise, the function should return null. The object it returns should look like this:.....
-// {  
+// {
 //   "student": "Lydia Miller-Jones",
-//   "interviewer": {  
+//   "interviewer": {
 //     "id": 1,
 //     "name": "Sylvia Palmer",
 //     "avatar": "https://i.imgur.com/LpaY82x.png"
@@ -96,23 +94,23 @@ export function getInterview(state, interview) {
   }
 
   const interviewerID = interview.interviewer;
-  const interviewerObject = state.interviewers[interviewerID]
+  const interviewerObject = state.interviewers[interviewerID];
 
-  return ({...interview, interviewer: interviewerObject})
+  return { ...interview, interviewer: interviewerObject };
 }
 
 //********************************           function getInterviewersForDay                       ****************************/
 
-export function getInterviewersForDay (state, day){
-const dayObject = state.days.filter(element => element.name === day)
-if (dayObject.length === 0) {
-  return [];
-}
+export function getInterviewersForDay(state, day) {
+  const dayObject = state.days.filter((element) => element.name === day);
+  if (dayObject.length === 0) {
+    return [];
+  }
 
-const interviewersIDs = dayObject[0].interviewers
-const interviewers = interviewersIDs.map(id => state.interviewers[id])
+  const interviewersIDs = dayObject[0].interviewers;
+  const interviewers = interviewersIDs.map((id) => state.interviewers[id]);
 
-return interviewers;
+  return interviewers;
 }
 
 // Sample Output of getInterviewersForDay **********************
