@@ -3,7 +3,7 @@ Scheduler is a single-page interview-scheduling application made with React. It 
 
 ## Tech Stack
 React with Webpack and Babel for front-end
-Axios and WebSocket to communicate with server 
+Axios to communicate with server 
 Storybook, Jest, and Cypress for testing
 
 ## Dependencies
