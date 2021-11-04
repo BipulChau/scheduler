@@ -48,6 +48,12 @@ Seed the test database with the create.sql and test.sql files in the scheduler-a
 Run scheduler-api in test mode as `npm run test:server`
 Run the tests with `npm run cypress` from the scheduler directory.
 
+## Features
+Responsive UI in a Single Page
+[View, book and cancel interview appointment] (https://github.com/BipulChau/scheduler/blob/master/docs/View,%20create,%20cancel%20appointment%20along%20with%20spots%20remaining.png?raw=true)
+
+[Delete an appointment] (https://github.com/BipulChau/scheduler/blob/master/docs/Delete%20Appointment.png?raw=true)
+
 
 
 
