@@ -8,8 +8,6 @@ const Form = (props) => {
 
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-  console.log("From Form Component:", props.interviewers);
-
   //Reset Function that sets student and interviewer to ""
   const reset = () => {
     setStudent("");
