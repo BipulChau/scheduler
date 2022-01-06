@@ -12,6 +12,7 @@ const Form = (props) => {
   const reset = () => {
     setStudent("");
     setInterviewer(null);
+    setError("");
   };
 
   // Function that calls both reset function and props.onCancel
